@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wishlist | Dharshini Mart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+
+        <div class="logo">
+            Dharshini Mart
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Wishlist -->
+    <main class="wishlist-main">
+
+        <h1 class="wishlist-heading">
+            My Wishlist ❤️
+        </h1>
+
+        <div id="wishlistItems" class="wishlist-items">
+            <!-- Wishlist products will appear here -->
+        </div>
+
+    </main>
+
+
+    <script>
+
+        // Get wishlist from localStorage
+        const wishlist =
+            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        const wishlistContainer =
+            document.getElementById("wishlistItems");
+
+
+        // Empty wishlist
+        if (wishlist.length === 0) {
+
+            wishlistContainer.innerHTML = `
+                <div class="empty-wishlist">
+                    <h2>Your wishlist is empty ❤️</h2>
+                    <p>Add products you love to your wishlist.</p>
+
+                    <a href="home.html">
+                        Continue Shopping
+                    </a>
+                </div>
+            `;
+
+        }
+
+
+        // Display wishlist products
+        else {
+
+            wishlist.forEach(function (item, index) {
+
+                const product = document.createElement("div");
+
+                product.className = "wishlist-product";
+
+                product.innerHTML = `
+
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>${item.price}</p>
+                    </div>
+
+                    <button
+                        class="remove-wishlist-button"
+                        onclick="removeFromWishlist(${index})">
+                        Remove
+                    </button>
+
+                `;
+
+                wishlistContainer.appendChild(product);
+
+            });
+
+        }
+
+
+        // Remove product
+        function removeFromWishlist(index) {
+
+            wishlist.splice(index, 1);
+
+            localStorage.setItem(
+                "wishlist",
+                JSON.stringify(wishlist)
+            );
+
+            location.reload();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

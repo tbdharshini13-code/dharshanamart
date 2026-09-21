@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | Dharshini Mart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="home-header">
+
+        <div class="home-logo">
+            <a href="home.html">Dharshini Mart</a>
+        </div>
+
+        <nav class="home-nav">
+            <a href="home.html">Home</a>
+            <a href="home.html">Categories</a>
+            <a href="#">Wishlist ♡</a>
+            <a href="cart.html">Cart 🛒</a>
+        </nav>
+
+        <div class="home-profile">
+            <span>Hi, Buyer</span>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </header>
+
+
+    <!-- CART -->
+
+    <main class="cart-main">
+
+        <div class="cart-heading">
+
+            <p class="section-label">
+                YOUR SHOPPING BAG
+            </p>
+
+            <h1>
+                My Cart 🛒
+            </h1>
+
+            <p>
+                Review your selected products before checkout.
+            </p>
+
+        </div>
+
+
+        <div id="cartItems" class="cart-items">
+
+            <div class="empty-cart">
+
+                <div class="empty-cart-icon">
+                    🛒
+                </div>
+
+                <h2>
+                    Your cart is empty
+                </h2>
+
+                <p>
+                    Add some products from Dharshini Mart.
+                </p>
+
+                <a href="home.html" class="cart-shop-button">
+                    Continue Shopping
+                </a>
+
+            </div>
+
+        </div><div id="cartTotal" class="cart-total">
+    Total: ₹0
+</div>
+<div class="checkout-section">
+    <button class="checkout-button" onclick="checkoutCart()">
+        Proceed to Checkout
+    </button>
+</div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="home-footer">
+
+        <p>
+            © 2026 Dharshini Mart. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+    <script>
+
+        const cartItems =
+            document.getElementById("cartItems");
+
+        let savedCart =
+            JSON.parse(localStorage.getItem("cart")) || [];
+
+
+        // DISPLAY CART
+
+        if (savedCart.length > 0) {
+
+            cartItems.innerHTML = "";
+
+            savedCart.forEach(function (item, index) {
+
+                const cartProduct =
+                    document.createElement("div");
+
+                cartProduct.className =
+                    "cart-product";
+
+                cartProduct.innerHTML =
+                    `
+                    <div>
+                        <h3>${item.name}</h3>
+
+                        <p>${item.price}</p>
+                    </div>
+
+                    <div class="quantity-control">
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
+                            −
+                        </button>
+
+                        <span>
+                            ${item.quantity || 1}
+                        </span>
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
+                            +
+                        </button>
+
+                        <button
+                            class="remove-cart-button"
+                            onclick="removeFromCart(${index})">
+                            Remove
+                        </button>
+
+                    </div>
+                    `;
+
+                cartItems.appendChild(cartProduct);
+
+            });
+
+        }
+
+
+        // CHANGE QUANTITY
+
+        function changeQuantity(index, change) {
+
+            savedCart[index].quantity =
+                (savedCart[index].quantity || 1) + change;
+
+            if (savedCart[index].quantity < 1) {
+
+                savedCart[index].quantity = 1;
+
+            }
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(savedCart)
+            );
+
+            location.reload();
+        }
+
+
+        // REMOVE PRODUCT
+
+        function removeFromCart(index) {
+
+            savedCart.splice(index, 1);
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(savedCart)
+            );
+
+            location.reload();
+        }
+
+    // =========================
+// CALCULATE CART TOTAL
+// =========================
+
+let total = 0;
+
+savedCart.forEach(function (item) {
+
+    const price =
+        parseInt(item.price.replace(/[^\d]/g, ""));
+
+    const quantity =
+        item.quantity || 1;
+
+    total = total + (price * quantity);
+});
+
+document.getElementById("cartTotal").textContent =
+    "Total: ₹" + total.toLocaleString("en-IN");
+    </script>
+
+</body>
+
+</html>

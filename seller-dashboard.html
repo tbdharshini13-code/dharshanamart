@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Dashboard | Dharshini Mart</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         SELLER HEADER
+    ========================== -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            Dharshini Mart
+        </div>
+
+        <nav>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="seller-dashboard.html">
+                Seller Dashboard
+            </a>
+
+            <a href="index.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         SELLER MAIN
+    ========================== -->
+
+    <main class="seller-main">
+
+
+        <!-- =========================
+             WELCOME SECTION
+        ========================== -->
+
+        <section class="seller-welcome">
+
+            <div>
+
+                <p class="section-label">
+                    SELLER PANEL
+                </p>
+
+                <h1>
+                    Welcome, Seller 👋
+                </h1>
+
+                <p>
+                    Manage your products, orders and
+                    store performance from here.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="addProductButton"
+                class="add-product-button"
+                onclick="openProductForm()">
+
+                + Add New Product
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             ADD PRODUCT FORM
+        ========================== -->
+
+        <section
+            class="add-product-form-section"
+            id="addProductFormSection"
+            style="display: none;">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        NEW PRODUCT
+                    </p>
+
+                    <h2>
+                        Add a Product
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <form id="addProductForm">
+
+
+                <div class="form-group">
+
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Enter product name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="productCategory"
+                        required>
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Fashion">
+                            Fashion
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                        <option value="Home">
+                            Home
+                        </option>
+
+                        <option value="Books">
+                            Books
+                        </option>
+
+                        <option value="Accessories">
+                            Accessories
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productPrice">
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        placeholder="Enter price"
+                        min="1"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        placeholder="Enter product description"
+                        rows="4"
+                        required></textarea>
+
+                </div>
+
+
+                <div class="product-form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-product-button">
+
+                        Add Product
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-product-button"
+                        id="cancelProductButton">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             STATS
+        ========================== -->
+
+        <section class="seller-stats">
+
+
+            <div class="seller-stat-card">
+
+                <p>
+                    Total Products
+                </p>
+
+                <h2 id="totalProductsCount">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="seller-stat-card">
+
+                <p>
+                    Total Orders
+                </p>
+
+                <h2>
+                    86
+                </h2>
+
+            </div>
+
+
+            <div class="seller-stat-card">
+
+                <p>
+                    Total Sales
+                </p>
+
+                <h2>
+                    ₹42,580
+                </h2>
+
+            </div>
+
+
+            <div class="seller-stat-card">
+
+                <p>
+                    Store Rating
+                </p>
+
+                <h2>
+                    4.6 ⭐
+                </h2>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             QUICK ACTIONS
+        ========================== -->
+
+        <section class="seller-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        QUICK ACTIONS
+                    </p>
+
+                    <h2>
+                        Manage Your Store
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <div class="quick-action-card">
+
+                    <h3>
+                        Add Product
+                    </h3>
+
+                    <p>
+                        Add a new product to your store.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="quickAddProductButton"
+                        onclick="openProductForm()">
+
+                        Add Product →
+
+                    </button>
+
+                </div>
+
+
+                <div class="quick-action-card">
+
+                    <h3>
+                        Manage Products
+                    </h3>
+
+                    <p>
+                        View and manage your products.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="scrollToProducts()">
+
+                        Manage Products →
+
+                    </button>
+
+                </div>
+
+
+                <div class="quick-action-card">
+
+                    <h3>
+                        Manage Orders
+                    </h3>
+
+                    <p>
+                        Check your recent customer orders.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="scrollToOrders()">
+
+                        Manage Orders →
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+        <!-- =========================
+             MANAGE PRODUCTS
+        ========================== -->
+
+        <section
+            class="seller-section"
+            id="manageProductsSection">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        PRODUCTS
+                    </p>
+
+                    <h2>
+                        Manage Products
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="sellerProductsList"
+                class="seller-products-list">
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECENT ORDERS
+        ========================== -->
+
+        <section
+            class="seller-section"
+            id="recentOrdersSection">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        ORDERS
+                    </p>
+
+                    <h2>
+                        Recent Orders
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="orders-table-wrapper">
+
+                <table class="orders-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Order ID
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Product
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                #DM1001
+                            </td>
+
+                            <td>
+                                Ananya
+                            </td>
+
+                            <td>
+                                Cotton Shirt
+                            </td>
+
+                            <td>
+                                ₹899
+                            </td>
+
+                            <td>
+                                <span class="order-status">
+                                    Delivered
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                #DM1002
+                            </td>
+
+                            <td>
+                                Priya
+                            </td>
+
+                            <td>
+                                Bracelet
+                            </td>
+
+                            <td>
+                                ₹499
+                            </td>
+
+                            <td>
+                                <span class="order-status">
+                                    Shipped
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                #DM1003
+                            </td>
+
+                            <td>
+                                Kavin
+                            </td>
+
+                            <td>
+                                Backpack
+                            </td>
+
+                            <td>
+                                ₹899
+                            </td>
+
+                            <td>
+                                <span class="order-status">
+                                    Processing
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 Dharshini Mart.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         SELLER SCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        // =========================
+        // OPEN PRODUCT FORM
+        // =========================
+
+        function openProductForm() {
+
+            const formSection =
+                document.getElementById(
+                    "addProductFormSection"
+                );
+
+            formSection.style.display = "block";
+
+            formSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+
+        // =========================
+        // CANCEL PRODUCT FORM
+        // =========================
+
+        const cancelProductButton =
+            document.getElementById(
+                "cancelProductButton"
+            );
+
+
+        if (cancelProductButton) {
+
+            cancelProductButton.addEventListener(
+                "click",
+                function () {
+
+                    const formSection =
+                        document.getElementById(
+                            "addProductFormSection"
+                        );
+
+                    const form =
+                        document.getElementById(
+                            "addProductForm"
+                        );
+
+                    form.reset();
+
+                    formSection.style.display =
+                        "none";
+
+                }
+            );
+
+        }
+
+
+        // =========================
+        // ADD PRODUCT
+        // =========================
+
+        const addProductForm =
+            document.getElementById(
+                "addProductForm"
+            );
+
+
+        if (addProductForm) {
+
+            addProductForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const productName =
+                        document
+                            .getElementById(
+                                "productName"
+                            )
+                            .value
+                            .trim();
+
+
+                    const category =
+                        document
+                            .getElementById(
+                                "productCategory"
+                            )
+                            .value
+                            .trim();
+
+
+                    const price =
+                        document
+                            .getElementById(
+                                "productPrice"
+                            )
+                            .value
+                            .trim();
+
+
+                    const description =
+                        document
+                            .getElementById(
+                                "productDescription"
+                            )
+                            .value
+                            .trim();
+
+
+                    if (
+                        productName === "" ||
+                        category === "" ||
+                        price === "" ||
+                        description === ""
+                    ) {
+
+                        alert(
+                            "Please fill all product details."
+                        );
+
+                        return;
+
+                    }
+
+
+                    let sellerProducts =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "sellerProducts"
+                            )
+                        ) || [];
+
+
+                    const newProduct = {
+
+                        id: Date.now(),
+
+                        name: productName,
+
+                        category: category,
+
+                        price: "₹" + price,
+
+                        description: description
+
+                    };
+
+
+                    sellerProducts.push(
+                        newProduct
+                    );
+
+
+                    localStorage.setItem(
+                        "sellerProducts",
+                        JSON.stringify(
+                            sellerProducts
+                        )
+                    );
+
+
+                    alert(
+                        "Product added successfully! 🎉"
+                    );
+
+
+                    addProductForm.reset();
+
+
+                    document
+                        .getElementById(
+                            "addProductFormSection"
+                        )
+                        .style.display = "none";
+
+
+                    displaySellerProducts();
+
+                }
+            );
+
+        }
+      
+
+        // =========================
+        // DISPLAY PRODUCTS
+        // =========================
+
+        const sellerProductsList =
+            document.getElementById(
+                "sellerProductsList"
+            );
+
+
+        const totalProductsCount =
+            document.getElementById(
+                "totalProductsCount"
+            );
+
+
+        function displaySellerProducts() {
+
+            const sellerProducts =
+                JSON.parse(
+                    localStorage.getItem(
+                        "sellerProducts"
+                    )
+                ) || [];
+
+
+            totalProductsCount.textContent =
+                sellerProducts.length;
+
+
+            sellerProductsList.innerHTML =
+                "";
+
+
+            if (sellerProducts.length === 0) {
+
+                sellerProductsList.innerHTML = `
+
+                    <div class="empty-seller-products">
+
+                        <h3>
+                            No products yet
+                        </h3>
+
+                        <p>
+                            Add your first product
+                            to your store.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            sellerProducts.forEach(
+                function (product, index) {
+
+                    const productCard =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    productCard.className =
+                        "seller-product-card";
+
+
+                    productCard.innerHTML = `
+
+                        <div
+                            class="seller-product-info">
+
+                            <p
+                                class="seller-product-category">
+
+                                ${product.category}
+
+                            </p>
+
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+
+                            <p
+                                class="seller-product-price">
+
+                                ${product.price}
+
+                            </p>
+
+
+                            <p
+                                class="seller-product-description">
+
+                                ${product.description}
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="product-action-buttons">
+
+
+                            <button
+                                type="button"
+                                class="edit-product-button"
+                                onclick="editSellerProduct(${index})">
+
+                                ✏️ Edit
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="delete-product-button"
+                                onclick="deleteSellerProduct(${index})">
+
+                                🗑️ Delete
+
+                            </button>
+
+
+                        </div>
+
+                    `;
+
+
+                    sellerProductsList.appendChild(
+                        productCard
+                    );
+
+                }
+            );
+
+        }
+
+
+        // =========================
+        // SCROLL TO PRODUCTS
+        // =========================
+
+        function scrollToProducts() {
+
+            document
+                .getElementById(
+                    "manageProductsSection"
+                )
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        // =========================
+        // SCROLL TO ORDERS
+        // =========================
+
+        function scrollToOrders() {
+
+            document
+                .getElementById(
+                    "recentOrdersSection"
+                )
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+        // =========================
+        // EDIT PRODUCT
+        // =========================
+
+        function editSellerProduct(index) {
+
+            let sellerProducts =
+                JSON.parse(
+                    localStorage.getItem(
+                        "sellerProducts"
+                    )
+                ) || [];
+
+
+            const product =
+                sellerProducts[index];
+
+
+            if (!product) {
+
+                alert("Product not found.");
+
+                return;
+
+            }
+
+
+            const newName =
+                prompt(
+                    "Enter product name:",
+                    product.name
+                );
+
+
+            if (newName === null) {
+
+                return;
+
+            }
+
+
+            const newCategory =
+                prompt(
+                    "Enter category:",
+                    product.category
+                );
+
+
+            if (newCategory === null) {
+
+                return;
+
+            }
+
+
+            const newPrice =
+                prompt(
+                    "Enter price:",
+                    product.price.replace("₹", "")
+                );
+
+
+            if (newPrice === null) {
+
+                return;
+
+            }
+
+
+            const newDescription =
+                prompt(
+                    "Enter description:",
+                    product.description
+                );
+
+
+            if (newDescription === null) {
+
+                return;
+
+            }
+
+
+            if (
+                newName.trim() === "" ||
+                newCategory.trim() === "" ||
+                newPrice.trim() === "" ||
+                newDescription.trim() === ""
+            ) {
+
+                alert(
+                    "Please enter all product details."
+                );
+
+                return;
+
+            }
+
+
+            product.name =
+                newName.trim();
+
+
+            product.category =
+                newCategory.trim();
+
+
+            product.price =
+                "₹" + newPrice.trim();
+
+
+            product.description =
+                newDescription.trim();
+
+
+            localStorage.setItem(
+                "sellerProducts",
+                JSON.stringify(
+                    sellerProducts
+                )
+            );
+
+
+            displaySellerProducts();
+
+
+            alert(
+                "Product updated successfully! ✏️"
+            );
+
+        }
+
+
+        // =========================
+        // DELETE PRODUCT
+        // =========================
+
+        function deleteSellerProduct(index) {
+
+            let sellerProducts =
+                JSON.parse(
+                    localStorage.getItem(
+                        "sellerProducts"
+                    )
+                ) || [];
+
+
+            if (!sellerProducts[index]) {
+
+                alert("Product not found.");
+
+                return;
+
+            }
+
+
+            const productName =
+                sellerProducts[index].name;
+
+
+            const confirmDelete =
+                confirm(
+                    "Delete " +
+                    productName +
+                    " from your products?"
+                );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            sellerProducts.splice(
+                index,
+                1
+            );
+
+
+            localStorage.setItem(
+                "sellerProducts",
+                JSON.stringify(
+                    sellerProducts
+                )
+            );
+
+
+            displaySellerProducts();
+
+        }
+
+
+        // =========================
+        // LOAD PRODUCTS
+        // =========================
+
+        displaySellerProducts();
+
+
+    </script>
+
+
+    <!-- =========================
+         EXTRA SELLER BUTTON STYLES
+    ========================== -->
+
+    <style>
+
+        .product-action-buttons {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .edit-product-button,
+        .delete-product-button {
+
+            border: none;
+
+            padding: 9px 14px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .edit-product-button {
+
+            background: #e7efe9;
+
+            color: #24352d;
+
+        }
+
+
+        .edit-product-button:hover {
+
+            background: #24352d;
+
+            color: white;
+
+        }
+
+
+        .delete-product-button {
+
+            background: #f3e7df;
+
+            color: #8b4a3b;
+
+        }
+
+
+        .delete-product-button:hover {
+
+            background: #8b4a3b;
+
+            color: white;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .product-action-buttons {
+
+                width: 100%;
+
+                flex-direction: row;
+
+            }
+
+
+            .edit-product-button,
+            .delete-product-button {
+
+                flex: 1;
+
+            }
+
+        }
+
+    </style>
+
+
+</body>
+
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Dharshini Mart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="home-header">
+
+        <div class="home-logo">
+
+            <div class="logo-box">
+                D
+            </div>
+
+            <div>
+                <h2>Dharshini Mart</h2>
+                <p>Shop • Discover • Enjoy</p>
+            </div>
+
+        </div>
+
+
+        <nav class="home-nav">
+
+            <a href="home.html">Home</a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="wishlist.html">
+                Wishlist ♡
+            </a>
+
+            <a href="cart.html">
+                Cart 🛒
+            </a>
+
+        </nav>
+
+
+        <div class="home-profile">
+
+            <span>Hi, Buyer</span>
+
+            <a href="index.html">
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="home-main">
+
+
+        <!-- Hero Section -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    DHARSHINI MART
+                </p>
+
+                <h1>
+                    Find something
+                    <span>you'll love.</span>
+                </h1>
+
+                <p>
+                    Explore useful products, discover new deals
+                    and enjoy a simple shopping experience.
+                </p>
+
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search for products..."
+                    >
+
+                    <button type="button" onclick="searchProducts()">
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="hero-icon">
+                    🛍️
+                </div>
+
+                <h3>
+                    Fresh finds,
+                    everyday.
+                </h3>
+
+                <p>
+                    Browse products from different categories
+                    in one place.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORIES
+        ========================== -->
+
+        <section class="home-section" id="categories">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>EXPLORE</p>
+
+                    <h2>
+                        Shop by category
+                    </h2>
+                </div>
+
+                <a href="#products">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        👕
+                    </div>
+
+                    <h3>
+                        Fashion
+                    </h3>
+
+                    <p>
+                        Clothing & accessories
+                    </p>
+
+                </div>
+
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Electronics
+                    </h3>
+
+                    <p>
+                        Gadgets & devices
+                    </p>
+
+                </div>
+
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        🏠
+                    </div>
+
+                    <h3>
+                        Home
+                    </h3>
+
+                    <p>
+                        Useful home products
+                    </p>
+
+                </div>
+
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Books
+                    </h3>
+
+                    <p>
+                        Learn & explore
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCTS
+        ========================== -->
+
+        <section class="home-section" id="products">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>DISCOVER</p>
+
+                    <h2>
+                        Popular products
+                    </h2>
+                </div>
+
+                <a href="#products">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="product-grid">
+
+
+                <!-- Product 1 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        👟
+                    </div>
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Fashion
+                        </p>
+
+                        <h3>
+                            Everyday Sneakers
+                        </h3>
+
+                        <p class="product-price">
+                            ₹1,299
+                        </p>
+
+
+                        <button
+                            class="cart-button"
+                            type="button">
+                            Add to Cart
+                        </button>
+
+
+                        <button
+                            class="wishlist-button"
+                            type="button">
+                            ♡ Add to Wishlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 2 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        🎧
+                    </div>
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Electronics
+                        </p>
+
+                        <h3>
+                            Wireless Headphones
+                        </h3>
+
+                        <p class="product-price">
+                            ₹1,899
+                        </p>
+
+
+                        <button
+                            class="cart-button"
+                            type="button">
+                            Add to Cart
+                        </button>
+
+
+                        <button
+                            class="wishlist-button"
+                            type="button">
+                            ♡ Add to Wishlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 3 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        🎒
+                    </div>
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Accessories
+                        </p>
+
+                        <h3>
+                            Daily Backpack
+                        </h3>
+
+                        <p class="product-price">
+                            ₹899
+                        </p>
+
+
+                        <button
+                            class="cart-button"
+                            type="button">
+                            Add to Cart
+                        </button>
+
+
+                        <button
+                            class="wishlist-button"
+                            type="button">
+                            ♡ Add to Wishlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 4 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        ⌚
+                    </div>
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Accessories
+                        </p>
+
+                        <h3>
+                            Smart Watch
+                        </h3>
+
+                        <p class="product-price">
+                            ₹2,499
+                        </p>
+
+
+                        <button
+                            class="cart-button"
+                            type="button">
+                            Add to Cart
+                        </button>
+
+
+                        <button
+                            class="wishlist-button"
+                            type="button">
+                            ♡ Add to Wishlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Dharshini Mart | Shop • Sell • Grow
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- =========================
+         SEARCH FUNCTION
+    ========================== -->
+
+    <script>
+
+        function searchProducts() {
+
+            const searchInput =
+                document.getElementById("productSearch");
+
+            const searchText =
+                searchInput.value.toLowerCase().trim();
+
+            const products =
+                document.querySelectorAll(".product-card");
+
+
+            products.forEach(function (product) {
+
+                const productName =
+                    product.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                const category =
+                    product.querySelector(".product-category")
+                    .textContent
+                    .toLowerCase();
+
+
+                if (
+                    productName.includes(searchText) ||
+                    category.includes(searchText)
+                ) {
+
+                    product.style.display = "";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
