@@ -1,4 +1,4 @@
-# DharshanaMart
+# Dharshini Mart
 
 A simple full-stack dress shopping application built with React, Node.js, Express, and MySQL.
 
