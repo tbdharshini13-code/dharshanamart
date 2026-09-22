@@ -81,3 +81,34 @@ The repository includes `render.yaml` for deploying the API and frontend on Rend
 6. Set `VITE_API_URL` on the frontend to the deployed API URL followed by `/api`, then redeploy the frontend.
 
 Never commit `.env`, database passwords, JWT secrets, `node_modules`, or `frontend/dist`.
+
+## Laptop-only review with ngrok
+
+The application can use MySQL only on your laptop. The public review URL works only while your laptop and all local processes are running.
+
+1. Start the Windows service named `MySQL80`. It is already running on this computer.
+2. In MySQL Workbench, create the database and tables by opening and running `database/schema.sql`.
+3. Edit `backend/.env` and replace `your_mysql_password` with the password for your local MySQL `root` account. Keep `DB_SSL=false`.
+4. Start the API:
+
+```powershell
+cd backend
+npm.cmd run dev
+```
+
+5. Start the frontend in a second terminal:
+
+```powershell
+cd frontend
+npm.cmd run dev
+```
+
+6. Install ngrok from https://ngrok.com/download, sign in, and add your ngrok auth token once. Then start a third terminal:
+
+```powershell
+ngrok http 5173
+```
+
+7. Share the `Forwarding` HTTPS URL shown by ngrok. Do not share the local `http://localhost` URL.
+
+Vite proxies the public browser's `/api` requests to the local Express API, so no cloud database or second ngrok tunnel is required. Stop ngrok, the frontend, or the backend to make the public URL unavailable.
